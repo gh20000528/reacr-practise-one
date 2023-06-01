@@ -28,7 +28,23 @@ function App() {
       <div>
         <h2>Let get started!</h2>
       </div>
-      <Expemseltem></Expemseltem>
+      <div className='bg-gray-300 w-1/2 mx-auto py-5 rounded-lg shadow-2xl px-5'>
+        <Expemseltem 
+          title = {exenses[0].title}
+          amount = {exenses[0].amount}
+          date = {exenses[0].date}
+        ></Expemseltem>
+          <Expemseltem 
+          title = {exenses[1].title}
+          amount = {exenses[1].amount}
+          date = {exenses[1].date}
+        ></Expemseltem>
+          <Expemseltem 
+          title = {exenses[2].title}
+          amount = {exenses[2].amount}
+          date = {exenses[2].date}
+        ></Expemseltem>
+      </div>
     </div>
   );
 }
