@@ -1,6 +1,7 @@
 import React , {useState} from 'react'
-import Expemseltem from './Expenseltem'
+import ExpemseChart from './ExpentChart'
 import ExpenseFiler from './ExpenseFiler'
+import ExpenseList from './ExpenseList'
 
 const Exense = (props) => {
   const [filerYear , setFilerYear] = useState('2022')
@@ -20,14 +21,8 @@ const Exense = (props) => {
   return (
     <div className='w-1/2 px-5 py-5 mx-auto bg-gray-300 rounded-lg shadow-2xl'>
       <ExpenseFiler selected={filerYear} onYearChange={yearChangeHandler}></ExpenseFiler>
-      {filteredExpenses.map((expense) => (
-        <Expemseltem
-          key={expense.id}
-          title={expense.title}
-          amount={expense.amount}
-          date={expense.date}
-        ></Expemseltem>
-      ))}
+      <ExpemseChart expense={filteredExpenses}></ExpemseChart>
+      <ExpenseList items={filteredExpenses}></ExpenseList>
     </div>
   )
 }

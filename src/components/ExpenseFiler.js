@@ -9,10 +9,10 @@ const ExpenseFiler = (props) => {
       <div className='flex justify-between'>
         <label className='text-xl font-bold'>Filter by year</label>
         <select className='px-3 py-2 rounded-lg' value={props.selected} onChange={yearHandler}>
-          <option value='2022'>2023</option>
-          <option value='2021'>2022</option>
-          <option value='2020'>2021</option>
-          <option value='2019'>2020</option>
+          <option value='2023'>2023</option>
+          <option value='2022'>2022</option>
+          <option value='2021'>2021</option>
+          <option value='2020'>2020</option>
         </select>
       </div>
     </div>
