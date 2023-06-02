@@ -1,6 +1,6 @@
 import React , {useState} from 'react'
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
     // method one
     const [enterTilie , setEnterTitle] = useState('')
     const [enterAmount , setEnterAmount] = useState('')
@@ -45,11 +45,11 @@ const ExpenseForm = () => {
 
         const expenseData = {
             title: enterTilie,
-            Amount: enterAmount,
-            data: new Date(enterDate)
+            amount: enterAmount,
+            date: new Date(enterDate)
         }
 
-        console.log(expenseData);
+        props.onSaveExpenseData(expenseData)
         setEnterTitle('')
         setEnterAmount('')
         setEnterDate('')

@@ -1,24 +1,33 @@
-import React from 'react'
+import React , {useState} from 'react'
 import Expemseltem from './Expenseltem'
+import ExpenseFiler from './ExpenseFiler'
 
 const Exense = (props) => {
+  const [filerYear , setFilerYear] = useState('2022')
+
+  const yearChangeHandler = (e) =>{
+    setFilerYear(e);
+  }
+
+ 
+
+
+  const filteredExpenses = props.items.filter(expense => {
+    return (expense.date.getFullYear().toString()) === filerYear;
+  })
+
+
   return (
-    <div className='bg-gray-300 w-1/2 mx-auto py-5 rounded-lg shadow-2xl px-5'>
-        <Expemseltem 
-        title = {props.items[0].title}
-        amount = {props.items[0].amount}
-        date = {props.items[0].date}
+    <div className='w-1/2 px-5 py-5 mx-auto bg-gray-300 rounded-lg shadow-2xl'>
+      <ExpenseFiler selected={filerYear} onYearChange={yearChangeHandler}></ExpenseFiler>
+      {filteredExpenses.map((expense) => (
+        <Expemseltem
+          key={expense.id}
+          title={expense.title}
+          amount={expense.amount}
+          date={expense.date}
         ></Expemseltem>
-        <Expemseltem 
-        title = {props.items[1].title}
-        amount = {props.items[1].amount}
-        date = {props.items[1].date}
-        ></Expemseltem>
-        <Expemseltem 
-        title = {props.items[2].title}
-        amount = {props.items[2].amount}
-        date = {props.items[2].date}
-        ></Expemseltem>
+      ))}
     </div>
   )
 }
