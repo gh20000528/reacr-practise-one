@@ -1,5 +1,6 @@
 import './App.css';
 import Exense from './components/Exense'
+import NewExpense from './components/NewExpense/NewExpense'
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
   return (
     <div className="App">
         <h2>Let get started!</h2>
+        <NewExpense></NewExpense>
         <Exense items={exenses}></Exense>
     </div>
   );
